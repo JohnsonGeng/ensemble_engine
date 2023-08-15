@@ -23,7 +23,7 @@ class Engine_huorong(Engine_base):
             pDLL = ctypes.WinDLL("C:\\Users\\huaxi-lab\\Desktop\\ensemble_engine\\Engine\\lib\\huorong.dll")
         except:
             try:
-                pDLL = ctypes.WinDLL("C:Users\\huaxi-lab\\Desktop\\ensemble_engine\\Engine\\lib\\huorong_64.dll")
+                pDLL = ctypes.WinDLL("C:\\Users\\huaxi-lab\\Desktop\\ensemble_engine\\Engine\\lib\\huorong_64.dll")
             except:
                 print("Load Native Library Error.")
         self.getHandle = pDLL.getHandle
