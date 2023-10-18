@@ -25,12 +25,17 @@ class Engine_eset(Engine_base):
         print(result)
         
         # 读取查杀结果并解析
-        if result[result.rfind('被感染') + 13] == '0':
-            return 0, 'Undeteced'
+        if result[result.rfind('检测到:') + 20] != '0':
+            left_index = result.find('结果=“')
+            right_index = result.find('”，操作=')
+            
+            return 1, result[left_index+len('结果=“'):right_index].strip(' 的变量')
         else:
-        
-            left_index = result.find('威胁="')
-            right_index = result.find('"，操作')
+            return 0, 'Undeteced'
             
-            return 1, result[left_index+len('威胁="'):right_index].strip(' 的变量')
-            
+
+
+
+
+
+

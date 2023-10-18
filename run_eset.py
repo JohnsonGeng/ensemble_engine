@@ -43,4 +43,18 @@ def detect():
     
 if __name__ == '__main__':
 
+
+    #with open('C:\\Users\\huaxi-lab\\Desktop\\1.txt', 'r+', encoding='utf-8') as f:
+    #    result = f.read()
+    
+    #print(result.rfind('检测到:'))
+    #print(result[result.rfind('检测到:') + 20])
+    
+    # 初始化引擎
+    #e_eset = Engine_eset()
+    
+    #r = e_eset.parse(result)
+    
+    #print(r)
+    
     app.run(host='0.0.0.0', port=5001, threaded=True)
