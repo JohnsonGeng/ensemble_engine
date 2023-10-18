@@ -8,17 +8,16 @@ class Engine_kaspersky(Engine_base):
     def __init__(self):
         
         # 引擎路径和查杀结果保存路径
-        self.detector_path = 'C:\\Program Files (x86)\\Kaspersky Lab\\Kaspersky Total Security 21.3'
+        self.detector_path = 'C:\\Program Files (x86)\\Kaspersky Lab\\Kaspersky Anti-Virus 21.3'
        
 
     def scan(self, file_path):
         
         # 调用查杀命令
         command = '"' + self.detector_path + '\\avp.com" scan /i0 ' + '"' + file_path + '"'
-        result = subprocess.getoutput(command)
+        output = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+        result = output.stdout.read().decode('utf-8')
         return self.__parse(result)
-        
-                
                 
     def __parse(self, result=''):
     
