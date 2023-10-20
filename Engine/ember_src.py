@@ -16,7 +16,7 @@ LIEF_EXPORT_OBJECT = int(LIEF_MAJOR) > 0 or (
 
 module_path = os.path.split(os.path.abspath(sys.modules[__name__].__file__))[0]
 model_path = os.path.join(module_path, 'model/ember_model.txt')
-
+novel_path = os.path.join(module_path, 'model/ember_retrained.txt')
 
 class FeatureType:
 
@@ -756,7 +756,12 @@ class PEFeatureExtractor:
 class EmberModel:
 
     def __init__(self, name='Ember'):
-        self.model = lgb.Booster(model_file=model_path)
+
+        if name == 'Ember':
+            self.model = lgb.Booster(model_file=model_path)
+        else:
+            self.model = lgb.Booster(model_file=novel_path)
+
         self.threshold = 0.8336  # Ember 1% FPR
         self.feature_version = 2
         self.extractor = PEFeatureExtractor(self.feature_version)

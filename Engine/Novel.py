@@ -2,12 +2,12 @@ from Engine.ember_src import EmberModel
 from Engine.Engine import Engine_base
 
 # Ember引擎
-class Engine_ember(Engine_base):
+class Engine_novel(Engine_base):
 
     def __init__(self):
 
         # 初始化模型
-        self.detector = EmberModel(name='Ember')
+        self.detector = EmberModel(name='Novel')
 
     def scan(self, file_path):
 
