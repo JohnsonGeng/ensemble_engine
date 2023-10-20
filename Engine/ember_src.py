@@ -774,5 +774,5 @@ class EmberModel:
 
     def predict(self, features):
 
-        proba = self.model.predict([features])[0]
+        proba = max(self.model.predict([features])[0], 100)
         return proba
