@@ -38,7 +38,7 @@ class Engine_winner(Engine_base):
 		feature = np.array(self.extractor.feature_vector(bytez), dtype=np.float32)
 		feature = feature.reshape(1, 2381)
 		dtest = xgb.DMatrix(feature)
-		result = self.model.predict(dtest)
+		result = self.model.predict(dtest)[0]
 
 		return self.__parse(result)
 
