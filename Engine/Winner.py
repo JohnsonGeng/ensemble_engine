@@ -5,10 +5,15 @@
 # @Description: ...
 
 import os
+import sys
 import xgboost as xgb
 from Engine.ember_src import EmberModel
 from Engine.Engine import Engine_base
 
+
+# 获取脚本根目录
+MODULE_PATH = os.path.split(os.path.abspath(sys.modules[__name__].__file__))[0]
+MODEL_PATH = os.path.join(MODULE_PATH, 'model')
 
 # Winner引擎
 class Engine_winner(Engine_base):
@@ -16,7 +21,7 @@ class Engine_winner(Engine_base):
 	def __init__(self):
 
 		# 初始化模型和特征提取器
-		self.model = xgb.Booster().load_model(os.path.join('model', 'winner.model'))
+		self.model = xgb.Booster().load_model(os.path.join(MODULE_PATH, 'winner.model'))
 		self.extractor = EmberModel().extractor()
 
 	def scan(self, file_path):
