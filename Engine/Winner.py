@@ -33,7 +33,7 @@ class Engine_winner(Engine_base):
 
 		# 提取特征并检测
 		feature = np.array(self.extractor.feature_vector(bytez), dtype=np.float32)
-		dtest = xgb.Dmatrix(feature)
+		dtest = xgb.DMatrix(feature)
 		result = self.model.predict(dtest)
 
 		return self.__parse(result)
