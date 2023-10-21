@@ -21,9 +21,10 @@ class Engine_winner(Engine_base):
 
 	def __init__(self):
 
+		loaded_model = xgb.Booster()
+		loaded_model.load_model(os.path.join(MODEL_PATH, 'winner.model'))
 		# 初始化模型和特征提取器
-		self.model = xgb.Booster()
-		self.model = self.model.load_model(os.path.join(MODEL_PATH, 'winner.model'))
+		self.model = loaded_model
 		self.extractor = EmberModel().extractor
 
 	def scan(self, file_path):
