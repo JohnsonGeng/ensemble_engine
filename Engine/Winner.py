@@ -6,6 +6,7 @@
 
 import os
 import sys
+import numpy as np
 import xgboost as xgb
 from Engine.ember_src import EmberModel
 from Engine.Engine import Engine_base
@@ -22,7 +23,7 @@ class Engine_winner(Engine_base):
 
 		# 初始化模型和特征提取器
 		self.model = xgb.Booster().load_model(os.path.join(MODEL_PATH, 'winner.model'))
-		self.extractor = EmberModel().extractor()
+		self.extractor = EmberModel().extractor
 
 	def scan(self, file_path):
 
@@ -31,7 +32,7 @@ class Engine_winner(Engine_base):
 			bytez = f.read()
 
 		# 提取特征并检测
-		feature = self.extractor.extract(bytez)
+		feature = np.array(self.extractor.feature_vector(bytez), dtype=np.float32)
 		dtest = xgb.Dmatrix(feature)
 		result = self.model.predict(dtest)
 
