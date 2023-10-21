@@ -15,8 +15,8 @@ LIEF_EXPORT_OBJECT = int(LIEF_MAJOR) > 0 or (
 
 
 module_path = os.path.split(os.path.abspath(sys.modules[__name__].__file__))[0]
-model_path = os.path.join(module_path, 'model/ember_model.txt')
-novel_path = os.path.join(module_path, 'model/ember_tuned.txt')
+model_path = os.path.join(module_path, 'model/ember_tuned.txt')
+novel_path = os.path.join(module_path, 'model/ember_model.txt')
 
 class FeatureType:
 
