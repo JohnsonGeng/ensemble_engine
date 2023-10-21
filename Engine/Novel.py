@@ -1,7 +1,7 @@
 from Engine.ember_src import EmberModel
 from Engine.Engine import Engine_base
 
-# Ember引擎
+# Novel引擎
 class Engine_novel(Engine_base):
 
     def __init__(self):

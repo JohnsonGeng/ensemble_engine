@@ -16,7 +16,7 @@ LIEF_EXPORT_OBJECT = int(LIEF_MAJOR) > 0 or (
 
 module_path = os.path.split(os.path.abspath(sys.modules[__name__].__file__))[0]
 model_path = os.path.join(module_path, 'model/ember_model.txt')
-novel_path = os.path.join(module_path, 'model/ember_retrained.txt')
+novel_path = os.path.join(module_path, 'model/ember_tuned.txt')
 
 class FeatureType:
 
@@ -774,5 +774,5 @@ class EmberModel:
 
     def predict(self, features):
 
-        proba = min(self.model.predict([features])[0], 1.00)
+        proba = self.model.predict([features])[0]
         return proba
