@@ -23,6 +23,7 @@ class Engine_winner(Engine_base):
 
 		loaded_model = xgb.Booster()
 		loaded_model.load_model(os.path.join(MODEL_PATH, 'winner.model'))
+		print(loaded_model)
 		# 初始化模型和特征提取器
 		self.model = loaded_model
 		self.extractor = EmberModel().extractor
