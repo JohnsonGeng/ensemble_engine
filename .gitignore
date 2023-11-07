@@ -1,6 +1,6 @@
 .idea/
 __pycache__/
-Engine/lib
-Engine/model/
+engine/lib
+engine/model/
 result/
 upload/

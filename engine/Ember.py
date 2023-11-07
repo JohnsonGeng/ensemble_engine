@@ -1,13 +1,13 @@
-from Engine.ember_src import EmberModel
-from Engine.Engine import Engine_base
+from engine.ember_src import EmberModel
+from engine.Engine import Engine_base
 
-# Novel引擎
-class Engine_novel(Engine_base):
+# Ember引擎
+class Engine_ember(Engine_base):
 
     def __init__(self):
 
         # 初始化模型
-        self.detector = EmberModel(name='Novel')
+        self.detector = EmberModel(name='Ember')
 
     def scan(self, file_path):
 

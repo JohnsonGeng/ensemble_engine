@@ -1,1 +1,1 @@
-python run_kaspersky.py
+python run.py -e Kaspersky -p 5000

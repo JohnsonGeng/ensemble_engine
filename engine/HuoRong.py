@@ -5,7 +5,7 @@ import json
 import ctypes
 import sqlite3
 import subprocess
-from Engine.Engine import Engine_base
+from engine.Engine import Engine_base
 
 
 
@@ -20,10 +20,10 @@ class Engine_huorong(Engine_base):
         # 加载窗口处理dll
         pDLL = None
         try:
-            pDLL = ctypes.WinDLL("C:\\Users\\huaxi-lab\\Desktop\\ensemble_engine\\Engine\\lib\\huorong.dll")
+            pDLL = ctypes.WinDLL("C:\\Users\\huaxi-lab\\Desktop\\ensemble_engine\\engine\\lib\\huorong.dll")
         except:
             try:
-                pDLL = ctypes.WinDLL("C:\\Users\\huaxi-lab\\Desktop\\ensemble_engine\\Engine\\lib\\huorong_64.dll")
+                pDLL = ctypes.WinDLL("C:\\Users\\huaxi-lab\\Desktop\\ensemble_engine\\engine\\lib\\huorong_64.dll")
             except:
                 print("Load Native Library Error.")
         self.getHandle = pDLL.getHandle

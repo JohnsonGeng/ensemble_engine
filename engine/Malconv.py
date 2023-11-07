@@ -1,5 +1,5 @@
-from Engine.Engine import Engine_base
-from Engine.malconv_src import MalConvModel
+from engine.Engine import Engine_base
+from engine.malconv_src import MalConvModel
 
 # Malconv引擎
 class Engine_malconv(Engine_base):

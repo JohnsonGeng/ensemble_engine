@@ -8,8 +8,8 @@ import os
 import sys
 import numpy as np
 import xgboost as xgb
-from Engine.ember_src import EmberModel
-from Engine.Engine import Engine_base
+from engine.ember_src import EmberModel
+from engine.Engine import Engine_base
 
 
 # 获取脚本根目录

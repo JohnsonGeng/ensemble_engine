@@ -1,1 +1,1 @@
-python run_avast.py
+python run.py -e Avast -p 5000

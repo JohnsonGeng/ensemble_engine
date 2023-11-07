@@ -1,1 +1,1 @@
-python run_huorong.py
+python run.py -e HuoRong -p 5001
