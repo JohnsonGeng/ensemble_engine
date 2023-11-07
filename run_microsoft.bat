@@ -1,1 +1,1 @@
-python run_microsoft.py
+python run.py -e MicroSoft -p 5000
