@@ -59,7 +59,7 @@ elif engine_name == 'Kaspersky':
 elif engine_name == 'MalConv':
 	e = EngineMalConv()
 elif engine_name == 'MicroSoft':
-	e = EngineMalConv()
+	e = EngineMicrosoft()
 elif engine_name == 'Novel':
 	e = EngineNovel()
 elif engine_name == 'Winner':
