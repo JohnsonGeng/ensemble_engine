@@ -448,7 +448,7 @@ class EngineWinner(EngineBase):
 			return 0, 'Undetected'
 
 
-# 360杀毒引擎
+# 360杀毒引擎(未启用)
 class EngineQihoo(EngineBase):
 
 	def __init__(self):
@@ -497,6 +497,27 @@ class EngineQihoo(EngineBase):
 					continue
 
 		if '未发现威胁文件' in content:
+
+			return 0, 'Class'
+
+		else:
+
+			return 1, 'Class'
+
+
+# Sophos杀毒引擎(未启用)
+class EngineSophos(EngineBase):
+
+	def scan(self, file_path):
+
+		command = 'savscan ' + file_path + ' -remove'
+		result = subprocess.getoutput(command)
+
+		return self.__parse(result)
+
+	def __parse(self, result):
+
+		if 'No viruses were discovered' in result:
 
 			return 0, 'Class'
 
