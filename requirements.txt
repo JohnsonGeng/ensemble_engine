@@ -5,3 +5,6 @@ scikit-learn==1.2.2
 pandas==1.5.3
 numpy==1.23.5
 lightgbm==2.2.3
+mahotas==1.4.13
+hickle==5.0.2
+numba==0.48.0

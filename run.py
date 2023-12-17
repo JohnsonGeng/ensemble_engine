@@ -22,9 +22,9 @@ parser.add_argument(
 	'-e',
 	'--engine',
 	type=str,
-	choices=['Avast', 'ClamAV', 'DrWeb', 'ESET', 'HuoRong', 'Kaspersky', 'Ember', 'MalConv', 'MicroSoft', 'Novel', 'Winner', 'Qihoo'],
+	choices=['Avast', 'ClamAV', 'DrWeb', 'ESET', 'HuoRong', 'Kaspersky', 'Ember', 'MalConv', 'MicroSoft', 'Novel', 'NovelFamily', 'Winner', 'Qihoo'],
 	default='Avast',
-	help='需要启动的引擎 可选:Avast/ClamAV/DrWeb/ESET/Ember/HuoRong/Kaspersky/MalConv/MircoSoft/Novel/Winner/Qihoo 默认:Avast',
+	help='需要启动的引擎 可选:Avast/ClamAV/DrWeb/ESET/Ember/HuoRong/Kaspersky/MalConv/MircoSoft/Novel/NovelFamily/Winner/Qihoo 默认:Avast',
 )
 
 parser.add_argument(
@@ -62,6 +62,8 @@ elif engine_name == 'MicroSoft':
 	e = EngineMicrosoft()
 elif engine_name == 'Novel':
 	e = EngineNovel()
+elif engine_name == 'NovelFamily':
+	e = EngineNovelFamily()
 elif engine_name == 'Winner':
 	e = EngineWinner()
 else:

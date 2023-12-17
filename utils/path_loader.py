@@ -39,6 +39,10 @@ HUORONG_DATABASE_PATH = config['PATH']['huorong_sql_path']
 KASPERSKY_PATH = config['PATH']['kaspersky_path']
 # MicroSoft路径
 MICROSOFT_PATH = config['PATH']['microsoft_path']
+# Novel家族分类模型路径
+NOVEL_FAMILY_PATH = os.path.join(MODEL_PATH, 'Novel_family.pkl')
+# Novel特征归一化器
+NOVEL_SCALER_PATH = os.path.join(MODEL_PATH, 'Scaler.pkl')
 # Winner路径
 WINNER_PATH = os.path.join(MODEL_PATH, 'winner.model')
 # 360路径

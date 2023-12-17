@@ -7,8 +7,10 @@ import subprocess
 import numpy as np
 import xgboost as xgb
 from utils.path_loader import *
+from utils.generate_bytes import *
 from engine.ember_src import EmberModel
 from engine.malconv_src import MalConvModel
+from engine.novel_src import NovelFamily
 
 
 # 引擎基类
@@ -409,6 +411,47 @@ class EngineNovel(EngineBase):
 			return 1, result
 		else:
 			return 0, 'Undetected'
+
+
+# Novel家族分类模型
+class EngineNovelFamily(EngineBase):
+
+	def __init__(self):
+
+		super().__init__()
+		# 初始化模型
+		self.detector = NovelFamily()
+
+	def scan(self, file_path):
+
+		path = os.path.split(file_path)[0]
+		file_name = os.path.split(file_path)[1]
+		saved_name = file_name + '.bytes'
+
+		# 先生成Bytes文件
+		byte_data = bytes_generator(file_path)
+
+		if byte_data:
+			# 拼接路径并保存
+			byte_file = os.path.join(path, saved_name)
+			with open(file_path, 'w') as out_file:
+				out_file.write('\n'.join(byte_data))
+		else:
+			print('不是PE文件！')
+			return 0, 'Error'
+
+		byte_path = os.path.join(path, saved_name)
+
+		# 提取特征并检测
+		self.detector.extract(byte_path)
+		result = self.detector.predict()
+
+		return self.__parse(result)
+
+	def __parse(self, result):
+
+
+		return result
 
 
 # Winner引擎
