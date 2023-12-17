@@ -10,8 +10,8 @@ import mahotas
 import numpy as np
 from math import log
 import mahotas.features
-import novel_strings as strings
-import novel_entropy as entropy
+import engine.novel_strings as strings
+import engine.novel_entropy as entropy
 from mahotas.features.lbp import lbp
 from utils.path_loader import *
 
